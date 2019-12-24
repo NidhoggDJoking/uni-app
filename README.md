@@ -1,5 +1,10 @@
-# uni-app
+<p align="center">
+  <a href="https://github.com/NidhoggDJoking" target="_blank">
+    <img width="100" src="../static/logo.png" alt="logo">
+  </a>
+</p>
 
+<h1 align="center">uni-app</h1>
 
 ### HbuilderX 主题自定义v1.0
 
@@ -17,7 +22,19 @@
 	"tab.inactiveBackground":"#003850",
 	"tab.hoverBackground":"#006f9e",
 	"tab.activeBorder":"#000",
-"tab.border":"#004765"
+	"tab.border":"#004765"
 },
+
+```
+### 基本目录结构
+
+```
+	main.js：Vue初始化入口文件.
+	pages目录：业务页面文件存放目录.
+	components目录：组件文件存放目录.
+	pages.json：配置页面路由、导航条、选项卡等页面类信息.
+	manifest.json：配置应用名称、appid、logo、版本等打包信息.
+	App.vue：应用配置，用来配置App全局样式以及监听应用的生命周期.
+	static目录：存放应用引用静态资源（如图片、视频等）的地方，注意：静态资源只能存放于此.
 
 ```
