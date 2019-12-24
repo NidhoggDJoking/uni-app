@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://github.com/NidhoggDJoking" target="_blank">
-    <img width="100" src="https://github.com/NidhoggDJoking/uni-app/blob/master/static/logo.png" alt="logo">
+    <img width="180" src="https://github.com/NidhoggDJoking/uni-app/blob/master/static/logo.png" alt="logo">
   </a>
 </p>
 
