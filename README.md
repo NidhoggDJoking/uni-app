@@ -6,6 +6,11 @@
 
 <h1 align="center">uni-app</h1>
 
+### 官方文档
+
+ [文档](https://uniapp.dcloud.io/#) &nbsp; <a> | </a> &nbsp; [API](https://uniapp.dcloud.io/api/#)
+
+
 ### HbuilderX 主题自定义v1.0
 
 ```
