@@ -8,11 +8,9 @@
 
 ### 官方文档
 
- [文档](https://uniapp.dcloud.io/#) &nbsp; <a> | </a> &nbsp; [API](https://uniapp.dcloud.io/api/#)
+ [文档](https://uniapp.dcloud.io/#) &nbsp; <a> 丨 </a> &nbsp; [API](https://uniapp.dcloud.io/api/#)
  
- -------------	
- 
-
+</br>
 
 ### HbuilderX 主题自定义v1.0
 
