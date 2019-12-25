@@ -28,7 +28,8 @@
 	"tab.inactiveBackground":"#003850",
 	"tab.hoverBackground":"#006f9e",
 	"tab.activeBorder":"#000",
-	"tab.border":"#004765"
+	"tab.border":"#004765",
+	"terminal.background":"#25732e"
 },
 
 ```
