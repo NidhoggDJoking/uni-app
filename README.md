@@ -17,7 +17,7 @@
 ```
 "[Monokai]": {
 	"toolBar.background": "#2c3535",
-	"sideBar.background":"#272822",
+	"sideBar.background":"#282c35",
 	"sideBar.border":"#b33939",
 	"minimap.handle.background":"#55E6C1",
 	"statusBar.foreground":"#fff",
