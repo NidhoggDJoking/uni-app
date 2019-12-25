@@ -3,6 +3,7 @@
 		<image class="logo" src="/static/logo.png"></image>
 		<view class="text-area">
 			<text class="title">{{title}}</text>
+			<button type="primary" @click="goTo">页面主操作 Normal</button>
 		</view>
 	</view>
 </template>
@@ -40,12 +41,17 @@
 				        this.title = 'request success';
 				    }
 				});
+			},
+			goTo(){
+				uni.navigateTo({
+				    url: 'hello'
+				});
 			}
 		}
 	}
 </script>
 
-<style>
+<style lang="less" scoped>
 	.content {
 		display: flex;
 		flex-direction: column;
@@ -65,10 +71,11 @@
 	.text-area {
 		display: flex;
 		justify-content: center;
+		.title {
+			font-size: 36rpx;
+			color: #8f8f94;
+		}
 	}
 
-	.title {
-		font-size: 36rpx;
-		color: #8f8f94;
-	}
+	
 </style>
