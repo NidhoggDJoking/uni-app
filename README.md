@@ -6,16 +6,16 @@
 
 <h1 align="center">uni-app</h1>
 
-### 官方文档
+### 官方文档链接：
 
- [文档](https://uniapp.dcloud.io/#) &nbsp; <a> 丨 </a> &nbsp; [API](https://uniapp.dcloud.io/api/#)
+ [文档](https://uniapp.dcloud.io/#) &nbsp; <a> 丨 </a> &nbsp; [API](https://uniapp.dcloud.io/api/#) &nbsp; <a> 丨 </a> &nbsp; [配置](https://uniapp.dcloud.io/collocation/pages)
  
 </br>
 
 ### HbuilderX 主题自定义v1.0
 
 ```
-"[Monokai]": {
+"[Zero]": {
 	"toolBar.background": "#2c3535",
 	"sideBar.background":"#282c35",
 	"sideBar.border":"#b33939",
