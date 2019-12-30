@@ -46,4 +46,15 @@
 
 ```
 
-### 目录名称
+### 注意事项
+```
+	div 改成 view
+	span、font 改成 text
+	a 改成 navigator
+	img 改成 image
+	input 还在，但type属性改成了confirmtype
+	form、button、checkbox、radio、label、textarea、canvas、video 这些还在。
+	select 改成 picker
+	iframe 改成 web-view
+	ul、li没有了，都用view替代
+```

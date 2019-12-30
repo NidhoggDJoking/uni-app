@@ -1,15 +1,34 @@
 <template>
 	<view class="content">
-		<image class="logo" src="/static/logo.png"></image>
-		<view class="text-area">
-			<text class="title">{{title}}</text>
-			<button type="primary" @click="goTo">页面主操作 Normal</button>
-		</view>
+		<image class="headimg" src="http://cdn.yxx.h-etrip.com/etrip/console/images/9031?w=600"></image>
+	<uni-grid :column="3" :show-border="false"  :square="false">
+	    <uni-grid-item>
+	        <text class="text">文本</text>
+	    </uni-grid-item>
+	    <uni-grid-item>
+	        <text class="text">文本</text>
+	    </uni-grid-item>
+	    <uni-grid-item>
+	        <text class="text">文本</text>
+	    </uni-grid-item>
+	    <uni-grid-item>
+	        <text class="text">文本</text>
+	    </uni-grid-item>
+	    <uni-grid-item>
+	        <text class="text">文本</text>
+	    </uni-grid-item>
+	    <uni-grid-item>
+	        <text class="text">文本</text>
+	    </uni-grid-item>
+	</uni-grid>
 	</view>
 </template>
 
 <script>
+	import uniGrid from "@/components/uni-grid/uni-grid.vue"
+	import uniGridItem from "@/components/uni-grid-item/uni-grid-item.vue"
 	export default {
+		components: {uniGrid,uniGridItem},
 		// 页面生命周期
 		onLoad() {
 			console.log('监听页面加载，其参数为上个页面传递的数据，参数类型为Object(用于页面传参)');
@@ -51,7 +70,7 @@
 	}
 </script>
 
-<style lang="less" scoped>
+<style  scoped>
 	.content {
 		display: flex;
 		flex-direction: column;
@@ -59,22 +78,9 @@
 		justify-content: center;
 	}
 
-	.logo {
-		height: 200rpx;
-		width: 200rpx;
-		margin-top: 200rpx;
-		margin-left: auto;
-		margin-right: auto;
-		margin-bottom: 50rpx;
-	}
-
-	.text-area {
-		display: flex;
-		justify-content: center;
-		.title {
-			font-size: 36rpx;
-			color: #8f8f94;
-		}
+	.headimg{
+		width: 100%;
+		height: 225px;
 	}
 
 	
