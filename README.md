@@ -1,10 +1,10 @@
 <p align="center">
   <a href="https://github.com/NidhoggDJoking" target="_blank">
-    <img width="130" src="https://github.com/NidhoggDJoking/uni-app/blob/master/static/logo.png" alt="logo">
+    <img width="130" src="https://github.com/NidhoggDJoking/VueCli/blob/master/src/image/Logo/Fox.png" alt="logo">
   </a>
 </p>
 
-<h1 align="center">uni-app</h1>
+<h1 align="center">勝利の法則は決まった！</h1>
 
 ### 官方文档链接：
 
