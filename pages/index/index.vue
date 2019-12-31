@@ -1,10 +1,9 @@
 <template>
 	<view class="content">
 		<view class="map">
-			<image class="headimg" src="http://cdn.yxx.h-etrip.com/etrip/console/images/9031?w=600">
+			<image class="headimg" src="http://cdn.yxx.h-etrip.com/etrip/console/images/9031?w=600"></image>
 				<text>怀化市</text>
 		</view>
-		</image>
 		<view class="grid">
 			<navigator :url="'/pages/other/introduce'">
 			<view>
