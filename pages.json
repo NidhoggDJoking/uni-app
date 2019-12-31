@@ -12,7 +12,7 @@
 		{
             "path" : "pages/index/hello",
             "style" : {
-				"navigationStyle":"custom" // 取消原生顶部导航栏
+				// "navigationStyle":"custom" // 取消原生顶部导航栏
 			}
         },
 		{

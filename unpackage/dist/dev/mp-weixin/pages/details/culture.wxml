@@ -1,1 +1,0 @@
-<view><view class="page-section swiper"><image src="{{$root.m0}}"></image></view><view class="text"><rich-text nodes="{{dataList.content}}"></rich-text></view></view>

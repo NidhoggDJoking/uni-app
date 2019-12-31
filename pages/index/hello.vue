@@ -87,7 +87,7 @@
 		font-weight: 600;
 		color: #666;
 		display: block;
-		margin: 15px 0 15px 10px;
+		margin: 15px 0 15px 12px;
 	}
 	.grid{
 		width: calc(100% - 20px);
@@ -100,7 +100,7 @@
 	
 	}
 	.grid > view{
-		width: 48%;
+		width: 47.5%;
 		height: 108px;
 		margin-bottom: 10px;
 		position: relative;

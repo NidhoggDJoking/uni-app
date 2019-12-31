@@ -1,1 +1,0 @@
-<view class="data-v-5626acdc"><image class="topimg data-v-5626acdc" src="{{img}}"></image><view class="card data-v-5626acdc"><text class="title data-v-5626acdc">{{name}}</text><text class="data-v-5626acdc">{{''+title+''}}</text></view><view class="text data-v-5626acdc"><rich-text nodes="{{textData}}"></rich-text></view></view>

@@ -9,6 +9,7 @@
 					</swiper>
 				</view>
 		</view>
+		<text class="name">{{spot.name}} :</text>
 		<view class="text" v-html="spot.description"></view>
 	</view>
 </template>
@@ -61,6 +62,13 @@
 	}
 	.text{
 		background: #fff;
-		padding: 25px;
+		padding:5px 20px 20px 20px;
+	}
+	.name{
+		margin-left: 20px;
+		height: 30px;
+		line-height: 40px;
+		font-size: 17px;
+
 	}
 </style>

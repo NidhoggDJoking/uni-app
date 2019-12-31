@@ -1,6 +1,10 @@
 <template>
 	<view class="content">
-		<image class="headimg" src="http://cdn.yxx.h-etrip.com/etrip/console/images/9031?w=600"></image>
+		<view class="map">
+			<image class="headimg" src="http://cdn.yxx.h-etrip.com/etrip/console/images/9031?w=600">
+				<text>怀化市</text>
+		</view>
+		</image>
 		<view class="grid">
 			<navigator :url="'/pages/other/introduce'">
 			<view>
@@ -18,10 +22,24 @@
 				<text>美食</text>
 			</view>
 			</navigator>
-<!-- 			<view>
-				<image src="http://yxx.h-etrip.com/app/assets/img/desNav3.png"></image>
+			<view>
+				<image src="http://yxx.h-etrip.com/app/assets/img/desNav5.png"></image>
+				<text>娱乐</text>
+			</view>
+		</view>
+		<view class="grid">
+			<view>
+				<image src="http://yxx.h-etrip.com/app/assets/img/desNav6.png"></image>
 				<text>特产</text>
-			</view> -->
+			</view>
+			<view>
+				<image src="http://yxx.h-etrip.com/app/assets/img/desNav7.png"></image>
+				<text>直播</text>
+			</view>
+			<view>
+				<image src="http://yxx.h-etrip.com/app/assets/img/desNav9.png"></image>
+				<text>租车</text>
+			</view>
 			<view>
 				<image src="http://yxx.h-etrip.com/app/assets/img/desNav10.png"></image>
 				<text>图库</text>
@@ -112,7 +130,18 @@
 		align-items: center;
 		justify-content: center;
 	}
-
+	.map{
+		position: relative;
+		width: 100%;
+		height: 225px;
+	}
+	.map > text{
+		position: absolute;
+		color: #fff;
+		font-size: 15px;
+		left: 15px;
+		top:20px;
+	}
 	.headimg{
 		width: 100%;
 		height: 225px;
@@ -120,10 +149,12 @@
 	.grid{
 		width: 100%;
 		display: flex;
+		flex-wrap:  wrap;
 		justify-content:space-around;
 		padding-bottom: 10px;
-		border-bottom: 5px solid #f7f8fa;
+
 	}
+
 	.grid  image{
 		width: 45px;
 		height: 45px;
@@ -136,7 +167,8 @@
 	}
 	  .destinationContentMap {
 	    width: 95%;
-	    margin: 25px auto 0;
+	    margin: 2px auto 0;
+		border-top: 5px solid #f7f8fa;
 	    .desMapTitle {
 	      width: 95%;
 	      margin: 0 auto;
@@ -157,12 +189,12 @@
 	        color: #999;
 	        text {
 	          display: inline-block;
-	          width: 18px;
-	          height: 18px;
+	          width: 12px;
+	          height: 12px;
 	          background: url("http://yxx.h-etrip.com/app/assets/img/homeRight.png") no-repeat;
 	          background-size: 100% 100%;
 	          position: relative;
-	          top: 5px;
+	          top: 1px;
 	          margin-left: 10px;
 	        }
 	      }
@@ -171,13 +203,14 @@
 	      padding: 8px;
 	      image {
 	        width: 100%;
+			height: 225px;
 	      }
 	    }
 		.desMapList{
 			padding: 5px;
 			.listCard{
 				width: 100%;
-				height: 260px;
+				height: 272px;
 				box-shadow: 0px 1px 4px #c7c7c7;
 				border-radius:7px;
 				margin-bottom: 10px;
@@ -187,11 +220,13 @@
 					color: #666;
 					font-size: 15px;
 					line-height: 30px;
-					margin-left: 10px;
+					padding-top: 10px;
+					margin-left: 15px;
 				}
 				image {
-				  padding: 12px;
-				  width: calc(100% - 24px);
+				  padding: 12px 15px;
+				  width: calc(100% - 30px);
+				  border-radius: 50px;
 				  height: 200px;
 				}
 			}
