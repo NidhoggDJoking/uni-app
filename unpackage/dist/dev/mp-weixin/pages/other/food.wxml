@@ -1,0 +1,1 @@
+<view><web-view webview-styles="{{webviewStyles}}" src="http://yxx.h-etrip.com/app/destination/delicious/2220"></web-view></view>

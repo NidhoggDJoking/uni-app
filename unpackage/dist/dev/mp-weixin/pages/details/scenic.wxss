@@ -1,0 +1,12 @@
+
+.swiper{
+	height: 200px;
+}
+.swiper image{
+	width: 100%;
+}
+.text{
+	background: #fff;
+	padding: 25px;
+}
+

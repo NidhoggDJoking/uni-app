@@ -1,0 +1,9 @@
+
+.swiper image{
+	width: 100%;
+}
+.text{
+	background: #fff;
+	padding: 20px;
+}
+

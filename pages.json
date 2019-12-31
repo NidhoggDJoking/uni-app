@@ -20,6 +20,24 @@
             "style" : {
 				"navigationStyle":"custom"
 			}
+        },
+		{
+		    "path" : "pages/other/introduce",
+		    "style" : {
+				// "navigationStyle":"custom"
+			}
+		},
+		{
+            "path" : "pages/other/food",
+            "style" : {}
+        },
+		{
+		    "path" : "pages/details/scenic",
+		    "style" : {}
+		}
+        ,{
+            "path" : "pages/details/culture",
+            "style" : {}
         }
     ],
 	
@@ -32,13 +50,13 @@
 	        "pagePath": "pages/index/index",
 	        "iconPath": "static/img/TabsHome.png",
 	        "selectedIconPath": "static/img/TabsHomeFocus.png",
-	        "text": "目的地"
+	        "text": "首页"
 	    },
 		{
 		    "pagePath": "pages/index/hello",
-		    "iconPath": "static/img/TabsDestination.png",
-		    "selectedIconPath": "static/img/TabsDestinationFocus.png",
-		    "text": "XX"
+		    "iconPath": "static/img/TabsTravel.png",
+		    "selectedIconPath": "static/img/TabsTravelFocus.png",
+		    "text": "景点"
 		},
 		{
 		    "pagePath": "pages/index/my",
@@ -53,7 +71,7 @@
 	// pages上具体页面没有设置style时默认为globalStyle属性
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
-		"navigationBarTitleText": "uni-app",
+		"navigationBarTitleText": "游潇湘",
 		"navigationBarBackgroundColor": "#F8F8F8",
 		"backgroundColor": "#F8F8F8"
 	}

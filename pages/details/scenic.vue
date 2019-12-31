@@ -1,0 +1,66 @@
+<template>
+	<view>
+		<view class="page-section swiper">
+		        <view class="page-section-spacing">
+		            <swiper class="swiper" :indicator-dots="indicatorDots" :autoplay="autoplay" :interval="interval" :duration="duration">
+		                    <swiper-item v-for="(item,index) in photo" :key="index">
+		                        <image :src="getImgUrl(item)" />
+							</swiper-item>
+					</swiper>
+				</view>
+		</view>
+		<view class="text" v-html="spot.description"></view>
+	</view>
+</template>
+
+<script>
+	export default {
+		onLoad(option) {
+			this.id = option.id;
+			console.log(this.id);
+			this.getData();
+		},
+	    data() {
+	        return {
+				id:',',
+				dataList:[],
+				photo:[],
+				spot:{},
+				indicatorDots: true,
+				autoplay: true,
+				interval: 2000,
+				duration: 500
+	        }
+	    },
+		methods:{
+			getData(){
+				let url = 'http://yxx.h-etrip.com:9092/etrip/api/app/et/spot/inst/' + this.id;
+				uni.request({
+				    url: url,
+				    success: (res) => {
+				        this.dataList = res.data.content;
+						this.spot = res.data.content.spot;
+						this.photo = res.data.content.photo;
+						console.log(this.photo);
+				    }
+				});
+			},
+			getImgUrl(data) {
+			     return this.getSrc(data);
+			},
+		}
+	}
+</script>
+
+<style>
+	.swiper{
+		height: 200px;
+	}
+	.swiper image{
+		width: 100%;
+	}
+	.text{
+		background: #fff;
+		padding: 25px;
+	}
+</style>
