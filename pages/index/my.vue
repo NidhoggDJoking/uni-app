@@ -6,7 +6,7 @@
 		<view class="card">
 			<image></image>
 			<text>登录后可查看更多</text>
-			<button class="login">登录/注册</button>
+			<button class="login" @click="login()">登录/注册</button>
 		</view>
 		<view class="foot">
 			<view class="toolTitle">常用工具</view>
@@ -18,18 +18,18 @@
 				<text>常用出行人</text>
 				<view class="flow"></view>
 			</view>
-			<view class="item">
+<!-- 			<view class="item">
 				<text>我的发票</text>
 				<view class="flow"></view>
-			</view>
+			</view> -->
 			<view class="item">
 				<text>收货地址</text>
 				<view class="flow"></view>
 			</view>
-			<view class="item">
+<!-- 			<view class="item">
 				<text>我的消息</text>
 				<view class="flow"></view>
-			</view>
+			</view> -->
 			<view class="item">
 				<text>设置</text>
 				<view class="flow"></view>
@@ -42,11 +42,28 @@
 	export default {
 		data() {
 			return {
-				
+					
 			}
 		},
 		methods: {
-			
+			login(){
+				uni.getProvider({
+				    service: 'oauth',
+				    success: function (res) {
+				        console.log(res.provider)
+				        if (~res.provider.indexOf('weixin')) {
+				            uni.login({
+				                provider: 'weixin',
+				                success: function (loginRes) {
+				                    console.log(JSON.stringify(loginRes));
+				                }
+				            });
+				        }
+				    }
+				});
+
+	
+			}
 		}
 	}
 </script>

@@ -11,7 +11,7 @@
 				<text>简介</text>
 			</view>
 			</navigator>
-			<view>
+			<view @click="goScenic">
 				<image src="http://yxx.h-etrip.com/app/assets/img/desNav2.png"></image>
 				<text>景点</text>
 			</view>
@@ -21,28 +21,38 @@
 				<text>美食</text>
 			</view>
 			</navigator>
+			<navigator :url="'/pages/other/recreation'">
 			<view>
 				<image src="http://yxx.h-etrip.com/app/assets/img/desNav5.png"></image>
 				<text>娱乐</text>
 			</view>
+			</navigator>
 		</view>
 		<view class="grid">
+			<navigator :url="'/pages/other/specialty'">
 			<view>
 				<image src="http://yxx.h-etrip.com/app/assets/img/desNav6.png"></image>
 				<text>特产</text>
 			</view>
+			</navigator>
+			<navigator :url="'/pages/other/live'">
 			<view>
 				<image src="http://yxx.h-etrip.com/app/assets/img/desNav7.png"></image>
 				<text>直播</text>
 			</view>
+			</navigator>
+			<navigator :url="'/pages/other/car'">
 			<view>
 				<image src="http://yxx.h-etrip.com/app/assets/img/desNav9.png"></image>
 				<text>租车</text>
 			</view>
+			</navigator>
+			<navigator :url="'/pages/other/picture'">
 			<view>
 				<image src="http://yxx.h-etrip.com/app/assets/img/desNav10.png"></image>
 				<text>图库</text>
 			</view>
+			</navigator>
 		</view>
 		      <view class="destinationContentMap">
 		        <view class="desMapTitle">
@@ -102,9 +112,8 @@
 		methods: {
 			getDate(){
 				uni.request({
-				    url: 'http://yxx.h-etrip.com:9092/etrip/api/app/et/article/cultures/list?areaId=2220',
+				    url: 'https://m.h-etrip.com/etrip/api/app/et/article/cultures/list?areaId=2220',
 				    success: (res) => {
-				        // console.log(res.data);
 				        this.dataList = res.data.content;
 				    }
 				});
@@ -116,6 +125,11 @@
 				 var url = '../details/culture?id=' + id ;
 				 uni.redirectTo({
 				     url: url
+				 });
+			 },
+			 goScenic(){
+				 uni.switchTab({
+				     url: '/pages/index/hello'
 				 });
 			 }
 		}

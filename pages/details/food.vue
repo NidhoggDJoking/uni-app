@@ -9,8 +9,8 @@
 					</swiper>
 				</view>
 		</view>
-		<text class="name">{{spot.name}} :</text>
-		<view class="text" v-html="spot.description"></view>
+		<text class="name">{{dataList.name}} :</text>
+		<view class="text" v-html="dataList.description"></view>
 	</view>
 </template>
 
@@ -25,7 +25,6 @@
 				id:'',
 				dataList:[],
 				photo:[],
-				spot:{},
 				indicatorDots: true,
 				autoplay: true,
 				interval: 2000,
@@ -34,16 +33,30 @@
 	    },
 		methods:{
 			getData(){
-				let url = 'https://m.h-etrip.com/etrip/api/app/et/spot/inst/' + this.id;
+				let url = 'https://m.h-etrip.com/etrip/api/app/et/restaurants/' + this.id;
+				let url2 = 'https://m.h-etrip.com/etrip/api/app/album/files?targetId=' + this.id +'&targetType=Restaurant&type=0';
 				uni.request({
 				    url: url,
 				    success: (res) => {
 				        this.dataList = res.data.content;
-						this.spot = res.data.content.spot;
-						this.photo = res.data.content.photo;
-						console.log(this.photo);
+						// this.spot = res.data.content.spot;
+						// this.photo = res.data.content.photo;
+						// console.log(this.dataList);
 				    }
 				});
+				uni.request({
+				    url: url2,
+				    success: (res) => {
+				        this.photo = res.data.content;
+						// this.spot = res.data.content.spot;
+						// this.photo = res.data.content.photo;
+						console.log(this.photo);
+				    },
+					fail:(error) =>{
+						console.log(error);
+					}
+				});
+				
 			},
 			getImgUrl(data) {
 			     return this.getSrc(data);
@@ -58,6 +71,7 @@
 	}
 	.swiper image{
 		width: 100%;
+		height: 100%;
 	}
 	.text{
 		background: #fff;
@@ -68,5 +82,6 @@
 		height: 30px;
 		line-height: 40px;
 		font-size: 17px;
+
 	}
 </style>

@@ -1,9 +1,9 @@
 <template>
 	<view>
 		<view class="page-section swiper">
-		       <image :src="getImgUrl(dataList)" />
+		       <video :src="videoSrc" />
 		</view>
-		<view class="text" v-html="dataList.content"></view>
+		<view class="text" v-html="dataList.outline"></view>
 	</view>
 </template>
 
@@ -15,21 +15,20 @@
 		},
 	    data() {
 	        return {
-				id:',',
+				id:'',
 				dataList:[],
-				indicatorDots: true,
-				autoplay: true,
-				interval: 2000,
-				duration: 500
+				videoSrc:'',
+				videoUrl:'http://cdn.yxx.h-etrip.com/etrip/console/files/'
 	        }
 	    },
 		methods:{
 			getData(){
-				let url = 'https://m.h-etrip.com/etrip/api/app/et/article/cultures/' + this.id;
+				let url = 'https://m.h-etrip.com/etrip/api/app/et/spot/videos/' + this.id;
 				uni.request({
 				    url: url,
 				    success: (res) => {
 				        this.dataList = res.data.content;
+						this.videoSrc = this.videoUrl+res.data.content.file.id
 				    }
 				});
 			},
@@ -41,7 +40,7 @@
 </script>
 
 <style>
-	.swiper image{
+	video{
 		width: 100%;
 	}
 	.text{

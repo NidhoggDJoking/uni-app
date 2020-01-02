@@ -45,13 +45,13 @@
 		methods: {
 			getDate(){
 				uni.request({
-				    url: 'https://m.h-etrip.com/etrip/api/app/page/block?code=mobile.index.restaurant.top-swiper',
+				    url: 'https://m.h-etrip.com/etrip/api/app/page/block?code=mobile.area.fun.recommendation',
 				    success: (res) => {
 				        this.dataList = res.data.content.content;
 				    }
 				});
 				uni.request({
-				    url: 'https://m.h-etrip.com/etrip/api/app/et/restaurants?pageNo=0&pageSize=20&areaIds=2220',
+				    url: 'https://m.h-etrip.com/etrip/api/app/et/funs?pageNo=0&pageSize=20&areaIds=2220',
 				    success: (res) => {
 				        this.itemList = res.data.content.content;
 				    }
@@ -61,7 +61,7 @@
 			     return this.getSrc(data);
 			},
 			godetails(id){
-				var url = '../details/food?id=' + id ;
+				var url = '../details/recreation?id=' + id ;
 				uni.redirectTo({
 				    url: url
 				});
@@ -83,10 +83,9 @@
 		font-weight: 600;
 		color: #666;
 		display: block;
-		margin: 15px 0 10px 12px;
+		margin: 15px 0 0px 15px;
 	}
 	.itemlist{
-		// margin-top: 10px;
 		.item{
 			display: flex;
 			padding: 10px;

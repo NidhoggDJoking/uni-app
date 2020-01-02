@@ -29,7 +29,7 @@
 		methods: {
 			getDate(){
 				uni.request({
-				    url: 'http://yxx.h-etrip.com:9092/etrip/api/app/et/areas/2220',
+				    url: 'https://m.h-etrip.com/etrip/api/app/et/areas/2220',
 				    success: (res) => {
 				        this.textData = res.data.content.content;
 						this.img = this.getImgUrl(res.data.content);

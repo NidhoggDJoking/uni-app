@@ -23,9 +23,7 @@
         },
 		{
 		    "path" : "pages/other/introduce",
-		    "style" : {
-				// "navigationStyle":"custom"
-			}
+		    "style" : {}
 		},
 		{
             "path" : "pages/other/food",
@@ -34,9 +32,51 @@
 		{
 		    "path" : "pages/details/scenic",
 		    "style" : {}
-		}
-        ,{
+		},
+		{
             "path" : "pages/details/culture",
+            "style" : {}
+        },
+		{
+            "path" : "pages/other/specialty",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/details/specialty",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/other/car",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/details/car",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/other/picture",
+            "style" : {
+				"navigationBarTitleText": "图库"
+			}
+        }
+        ,{
+            "path" : "pages/other/live",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/details/live",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/other/recreation",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/details/recreation",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/details/food",
             "style" : {}
         }
     ],

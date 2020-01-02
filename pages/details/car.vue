@@ -9,8 +9,8 @@
 					</swiper>
 				</view>
 		</view>
-		<text class="name">{{spot.name}} :</text>
-		<view class="text" v-html="spot.description"></view>
+		<text class="name">{{dataList.name}} :</text>
+		<view class="text" v-html="dataList.description"></view>
 	</view>
 </template>
 
@@ -23,9 +23,8 @@
 	    data() {
 	        return {
 				id:'',
-				dataList:[],
+				dataList:{},
 				photo:[],
-				spot:{},
 				indicatorDots: true,
 				autoplay: true,
 				interval: 2000,
@@ -34,13 +33,13 @@
 	    },
 		methods:{
 			getData(){
-				let url = 'https://m.h-etrip.com/etrip/api/app/et/spot/inst/' + this.id;
+				let url = 'https://m.h-etrip.com/etrip/api/app/et/rents/' + this.id;
 				uni.request({
 				    url: url,
 				    success: (res) => {
 				        this.dataList = res.data.content;
 						this.spot = res.data.content.spot;
-						this.photo = res.data.content.photo;
+						this.photo = res.data.content.photos;
 						console.log(this.photo);
 				    }
 				});
@@ -52,7 +51,7 @@
 	}
 </script>
 
-<style>
+<style scoped>
 	.swiper{
 		height: 200px;
 	}
@@ -68,5 +67,6 @@
 		height: 30px;
 		line-height: 40px;
 		font-size: 17px;
+
 	}
 </style>

@@ -50,13 +50,13 @@
 		methods: {
 			getDate(){
 				uni.request({
-				    url: 'http://yxx.h-etrip.com:9092/etrip/api/app/page/block?code=mobile-area-spot-top-swiper',
+				    url: 'https://m.h-etrip.com/etrip/api/app/page/block?code=mobile-area-spot-top-swiper',
 				    success: (res) => {
 				        this.dataList = res.data.content.content.slice(0,4);
 				    }
 				});
 				uni.request({
-				    url: 'http://yxx.h-etrip.com:9092/etrip/api/app/et/spot?areaIds=2220&pageNo=0&pageSize=50',
+				    url: 'https://m.h-etrip.com/etrip/api/app/et/spot?areaIds=2220&pageNo=0&pageSize=50',
 				    success: (res) => {
 				        this.itemList = res.data.content.content;
 				    }
@@ -81,6 +81,7 @@
 	}
 	.swiper image{
 		width: 100%;
+		height: 100%;
 	}
 	.h3{
 		font-size: 19px;

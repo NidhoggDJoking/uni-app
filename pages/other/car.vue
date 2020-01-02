@@ -11,7 +11,7 @@
 					</view>
 			</view>	
 		</view>
-		<text class="h3">专属推荐</text>
+		<text class="h3">推荐车辆</text>
 
 		<view class="itemlist">
 			<view class="item" v-for="(item,index) in itemList" :key="index" @click="godetails(item.id)">
@@ -20,7 +20,7 @@
 				</view>
 				<view class="item-rigt">
 					<text class="one">{{item.name}}</text>
-					<text class="two">{{item.address}}</text>
+					<text class="two">{{item.outline}}</text>
 				</view>
 			</view>
 		</view>
@@ -45,13 +45,13 @@
 		methods: {
 			getDate(){
 				uni.request({
-				    url: 'https://m.h-etrip.com/etrip/api/app/page/block?code=mobile.index.restaurant.top-swiper',
+				    url: 'https://m.h-etrip.com/etrip/api/app/page/block?code=moblie.area.rent-car.top-swiper',
 				    success: (res) => {
 				        this.dataList = res.data.content.content;
 				    }
 				});
 				uni.request({
-				    url: 'https://m.h-etrip.com/etrip/api/app/et/restaurants?pageNo=0&pageSize=20&areaIds=2220',
+				    url: 'https://m.h-etrip.com/etrip/api/app/et/rents?pageNo=0&pageSize=20&areaIds=2220',
 				    success: (res) => {
 				        this.itemList = res.data.content.content;
 				    }
@@ -61,7 +61,7 @@
 			     return this.getSrc(data);
 			},
 			godetails(id){
-				var url = '../details/food?id=' + id ;
+				var url = '../details/car?id=' + id ;
 				uni.redirectTo({
 				    url: url
 				});
@@ -72,7 +72,7 @@
 
 <style lang="less" scoped>
 	.swiper{
-		height: 200px;
+		height: 250px;
 	}
 	.swiper image{
 		width: 100%;
@@ -83,10 +83,10 @@
 		font-weight: 600;
 		color: #666;
 		display: block;
-		margin: 15px 0 10px 12px;
+		margin: 15px 0 0px 12px;
 	}
 	.itemlist{
-		// margin-top: 10px;
+		margin-top: 10px;
 		.item{
 			display: flex;
 			padding: 10px;
@@ -110,6 +110,11 @@
 					color: #666;
 					display: block;
 					margin: 10px 0 10px 0;
+					overflow: hidden;
+					text-overflow: ellipsis;
+					display: -webkit-box;
+					-webkit-line-clamp: 4;
+					-webkit-box-orient: vertical;
 				}
 			}
 		}
