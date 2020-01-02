@@ -37,24 +37,38 @@
 
 ```
 	main.js：Vue初始化入口文件.
+	
 	pages目录：业务页面文件存放目录.
+	
 	components目录：组件文件存放目录.
+	
 	pages.json：配置页面路由、导航条、选项卡等页面类信息.
+	
 	manifest.json：配置应用名称、appid、logo、版本等打包信息.
+	
 	App.vue：应用配置，用来配置App全局样式以及监听应用的生命周期.
+	
 	static目录：存放应用引用静态资源（如图片、视频等）的地方，注意：静态资源只能存放于此.
 
 ```
 
-### 注意事项
+#### 注意事项
 ```
 	div 改成 view
-	span、font 改成 text
-	a 改成 navigator
-	img 改成 image
-	input 还在，但type属性改成了confirmtype
-	form、button、checkbox、radio、label、textarea、canvas、video 这些还在。
-	select 改成 picker
-	iframe 改成 web-view
+	
 	ul、li没有了，都用view替代
+	
+	span、font 改成 text
+	
+	a 改成 navigator
+	
+	img 改成 image
+	
+	input 还在，但type属性改成了confirmtype
+	
+	select 改成 picker
+	
+	iframe 改成 web-view
+	
+	form、button、checkbox、radio、label、textarea、canvas、video 这些还在。
 ```
