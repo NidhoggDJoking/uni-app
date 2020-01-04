@@ -15,31 +15,33 @@
 </template>
 
 <script>
-	import {getValue} from '@/common/public'
+	import {
+		getValue
+	} from '@/common/public'
 	export default {
 		onLoad() {
 			this.getDate();
 		},
 		data() {
 			return {
-				star:0,
-				dataList:[],
+				star: 0,
+				dataList: [],
 			}
 		},
 		methods: {
-			change(num){
+			change(num) {
 				this.star = num;
 			},
 			getImgUrl(data) {
-			     return this.getSrc(data);
+				return this.getSrc(data);
 			},
-			getDate(){
+			getDate() {
 				uni.request({
-				    url: 'https://m.h-etrip.com/etrip/api/app/et/areas/album/2220',
-				    success: (res) => {
+					url: 'https://m.h-etrip.com/etrip/api/app/et/areas/album/2220',
+					success: (res) => {
 						this.dataList = res.data.content;
 						console.log(this.dataList);
-				    }
+					}
 				});
 			},
 		}
@@ -47,24 +49,27 @@
 </script>
 
 <style lang="less" scoped>
-.nav{
-	display: flex;
-}
-.nav > view {
-	width: 25%;
-	text-align: center;
-	height: 35px;
-	line-height: 35px;
-}
-.active{
-	border-bottom: 2px solid red;
-}
-image{
-	width: calc(100% -20px);
-	height: 260px;
-	margin: 10px auto;
-	display: block;
-	border-radius: 10px;
-	box-shadow: 0px 1px 4px #c7c7c7;
-}
+	.nav {
+		display: flex;
+	}
+
+	.nav>view {
+		width: 25%;
+		text-align: center;
+		height: 35px;
+		line-height: 35px;
+	}
+
+	.active {
+		border-bottom: 2px solid red;
+	}
+
+	image {
+		width: calc(100% -20px);
+		height: 260px;
+		margin: 10px auto;
+		display: block;
+		border-radius: 10px;
+		box-shadow: 0px 1px 4px #c7c7c7;
+	}
 </style>

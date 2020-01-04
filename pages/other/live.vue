@@ -1,12 +1,12 @@
 <template>
 	<view>
-		<image src="http://yxx.h-etrip.com/app/assets/img/liveBgI.png"/>
+		<image src="http://yxx.h-etrip.com/app/assets/img/liveBgI.png" />
 		<text class="title">热门直播</text>
 		<view class="list">
 			<view class="card" v-for="(item,index) in dataList" :key="index" @click="godetails(item.id)">
 				<image :src="getImgUrl(item)"></image>
 				<text>{{item.title}}</text>
-			    <text class="details">{{item.description}}</text>
+				<text class="details">{{item.description}}</text>
 			</view>
 		</view>
 	</view>
@@ -19,25 +19,25 @@
 		},
 		data() {
 			return {
-				dataList:[],
+				dataList: [],
 			}
 		},
 		methods: {
-			getData(){
+			getData() {
 				uni.request({
-				    url: 'https://m.h-etrip.com/etrip/api/app/et/spot/videos?pageNo=0&pageSize=20&sort=create_time%20desc',
-				    success: (res) => {
+					url: 'https://m.h-etrip.com/etrip/api/app/et/spot/videos?pageNo=0&pageSize=20&sort=create_time%20desc',
+					success: (res) => {
 						this.dataList = res.data.content.content;
-				    }
+					}
 				});
 			},
 			getImgUrl(data) {
-			     return this.getSrc(data);
+				return this.getSrc(data);
 			},
-			godetails(id){
-				var url = '../details/live?id=' + id ;
+			godetails(id) {
+				var url = '../details/live?id=' + id;
 				uni.redirectTo({
-				    url: url
+					url: url
 				});
 			}
 		}
@@ -45,34 +45,40 @@
 </script>
 
 <style lang="less" scoped>
-	image{
+	image {
 		width: 100%;
 		height: 185px;
 	}
-	.title{
+
+	.title {
 		display: block;
 		margin: 10px 15px 0 15px;
 		font-weight: 700;
 		color: #4C4C4C;
 	}
-	.list{
+
+	.list {
 		padding: 15px;
 	}
-	.card{
+
+	.card {
 		width: 100%;
 		margin-bottom: 18px;
-		image{
+
+		image {
 			width: 100%;
 			height: 145px;
 			border-radius: 7px;
 		}
-		text{
+
+		text {
 			display: block;
 			color: #666666;
 			font-size: 14px;
-			margin:5px;
+			margin: 5px;
 		}
-		.details{
+
+		.details {
 			font-size: 13px;
 			color: #999999;
 			overflow: hidden;

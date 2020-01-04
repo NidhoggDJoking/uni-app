@@ -1,7 +1,7 @@
 <template>
 	<view>
 		<view class="page-section swiper">
-		       <image :src="getImgUrl(dataList)" />
+			<image :src="getImgUrl(dataList)" />
 		</view>
 		<view class="text" v-html="dataList.content"></view>
 	</view>
@@ -13,38 +13,39 @@
 			this.id = option.id;
 			this.getData();
 		},
-	    data() {
-	        return {
-				id:',',
-				dataList:[],
+		data() {
+			return {
+				id: ',',
+				dataList: [],
 				indicatorDots: true,
 				autoplay: true,
 				interval: 2000,
 				duration: 500
-	        }
-	    },
-		methods:{
-			getData(){
+			}
+		},
+		methods: {
+			getData() {
 				let url = 'https://m.h-etrip.com/etrip/api/app/et/article/cultures/' + this.id;
 				uni.request({
-				    url: url,
-				    success: (res) => {
-				        this.dataList = res.data.content;
-				    }
+					url: url,
+					success: (res) => {
+						this.dataList = res.data.content;
+					}
 				});
 			},
 			getImgUrl(data) {
-			     return this.getSrc(data);
+				return this.getSrc(data);
 			},
 		}
 	}
 </script>
 
 <style>
-	.swiper image{
+	.swiper image {
 		width: 100%;
 	}
-	.text{
+
+	.text {
 		background: #fff;
 		padding: 20px;
 	}

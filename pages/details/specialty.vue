@@ -63,80 +63,88 @@
 		},
 		data() {
 			return {
-				dataList:{},
-				img:'',
+				dataList: {},
+				img: '',
 			}
 		},
 		methods: {
-			getDate(){
+			getDate() {
 				let url = 'https://m.h-etrip.com/etrip/api/app/et/specialties/product/' + this.id;
 				uni.request({
-				    url: url,
-				    success: (res) => {
-				        this.dataList = res.data.content;
+					url: url,
+					success: (res) => {
+						this.dataList = res.data.content;
 						this.img = this.getImgUrl(res.data.content);
-				    }
+					}
 				});
 
 			},
 			getImgUrl(data) {
-			     return this.getSrc(data);
+				return this.getSrc(data);
 			},
 		}
 	}
 </script>
 
 <style lang="less" scoped>
-.topimg{
-	width: 100%;
-	height: 230px;
-	background: center/cover no-repeat #e7e7e7;
-}
-.card{
-	width: 100%;
-	height: 50px;
-	position: relative;
-	top: -20px;
-	background: #fff;
-	border-radius: 20px 20px 0 0;
-	border-bottom: 5px solid #f7f8fa;
-	.name{
-		left: 15px;
-		top:15px;
-		position:absolute;
-		font-size: 16px;
-		font-weight: 600;
-		color: #333;
+	.topimg {
+		width: 100%;
+		height: 230px;
+		background: center/cover no-repeat #e7e7e7;
 	}
-	.money{
-		right: 15px;
-		top:15px;
-		position:absolute;
-		color:red;
-		
-	}
-}
-.details{
-	padding: 0 20px 10px 20px;
-	.item{
-		border-bottom: 1px solid #ebedf0;
-		.left{
-			display: inline-block;
-			width: 50%;
-			height: 35px;
-			line-height: 35px;
+
+	.card {
+		width: 100%;
+		height: 50px;
+		position: relative;
+		top: -20px;
+		background: #fff;
+		border-radius: 20px 20px 0 0;
+		border-bottom: 5px solid #f7f8fa;
+
+		.name {
+			left: 15px;
+			top: 15px;
+			position: absolute;
+			font-size: 16px;
 			font-weight: 600;
-			font-size: 13px;
+			color: #333;
 		}
-		.rig{
-			display: inline-block;
-			width: 50%;
-			font-size: 13px;
+
+		.money {
+			right: 15px;
+			top: 15px;
+			position: absolute;
+			color: red;
+
 		}
 	}
-}
-.text{
-	background: #fff;
-	padding: 20px;
-}
+
+	.details {
+		padding: 0 20px 10px 20px;
+
+		.item {
+			border-bottom: 1px solid #ebedf0;
+
+			.left {
+				display: inline-block;
+				width: 50%;
+				height: 35px;
+				line-height: 35px;
+				font-weight: 600;
+				font-size: 13px;
+			}
+
+			.rig {
+				display: inline-block;
+				width: 50%;
+				font-size: 13px;
+			}
+		}
+	}
+
+	.text {
+		background: #fff;
+		padding: 20px;
+	}
 </style>

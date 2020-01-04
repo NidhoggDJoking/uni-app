@@ -93,3 +93,14 @@
 	└─pages.json            配置页面路由、导航条、选项卡等页面类信息，详见
 
 ```
+
+#### 微信小程序方面
+
+```
+	uni.login 失效
+	使用小程序自身方法：
+	<button @getuserinfo="onGotUserInfo" open-type="getUserInfo">登录</button>
+	接收：
+	onGotUserInfo(res) {}
+
+```

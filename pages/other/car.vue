@@ -1,15 +1,15 @@
 <template>
 	<view>
 		<view class="uni-padding-wrap">
-		    <view class="page-section swiper">
-		            <view class="page-section-spacing">
-		                <swiper class="swiper" :indicator-dots="indicatorDots" :autoplay="autoplay" :interval="interval" :duration="duration">
-		                        <swiper-item v-for="(item,index) in dataList" :key="index">
-		                            <image :src="getImgUrl(item)" />
-								</swiper-item>
-						</swiper>
-					</view>
-			</view>	
+			<view class="page-section swiper">
+				<view class="page-section-spacing">
+					<swiper class="swiper" :indicator-dots="indicatorDots" :autoplay="autoplay" :interval="interval" :duration="duration">
+						<swiper-item v-for="(item,index) in dataList" :key="index">
+							<image :src="getImgUrl(item)" />
+						</swiper-item>
+					</swiper>
+				</view>
+			</view>
 		</view>
 		<text class="h3">推荐车辆</text>
 
@@ -34,8 +34,8 @@
 		},
 		data() {
 			return {
-				dataList:[],
-				itemList:[],
+				dataList: [],
+				itemList: [],
 				indicatorDots: true,
 				autoplay: true,
 				interval: 2000,
@@ -43,27 +43,27 @@
 			}
 		},
 		methods: {
-			getDate(){
+			getDate() {
 				uni.request({
-				    url: 'https://m.h-etrip.com/etrip/api/app/page/block?code=moblie.area.rent-car.top-swiper',
-				    success: (res) => {
-				        this.dataList = res.data.content.content;
-				    }
+					url: 'https://m.h-etrip.com/etrip/api/app/page/block?code=moblie.area.rent-car.top-swiper',
+					success: (res) => {
+						this.dataList = res.data.content.content;
+					}
 				});
 				uni.request({
-				    url: 'https://m.h-etrip.com/etrip/api/app/et/rents?pageNo=0&pageSize=20&areaIds=2220',
-				    success: (res) => {
-				        this.itemList = res.data.content.content;
-				    }
+					url: 'https://m.h-etrip.com/etrip/api/app/et/rents?pageNo=0&pageSize=20&areaIds=2220',
+					success: (res) => {
+						this.itemList = res.data.content.content;
+					}
 				});
 			},
 			getImgUrl(data) {
-			     return this.getSrc(data);
+				return this.getSrc(data);
 			},
-			godetails(id){
-				var url = '../details/car?id=' + id ;
+			godetails(id) {
+				var url = '../details/car?id=' + id;
 				uni.redirectTo({
-				    url: url
+					url: url
 				});
 			}
 		}
@@ -71,41 +71,50 @@
 </script>
 
 <style lang="less" scoped>
-	.swiper{
+	.swiper {
 		height: 250px;
 	}
-	.swiper image{
+
+	.swiper image {
 		width: 100%;
 		height: 100%;
 	}
-	.h3{
+
+	.h3 {
 		font-size: 19px;
 		font-weight: 600;
 		color: #666;
 		display: block;
 		margin: 15px 0 0px 12px;
 	}
-	.itemlist{
+
+	.itemlist {
 		margin-top: 10px;
-		.item{
+
+		.item {
 			display: flex;
 			padding: 10px;
-			justify-content:space-around;
-			.item-left{
+			justify-content: space-around;
+
+			.item-left {
 				width: 43%;
-				image{
+
+				image {
 					width: 100%;
 					height: 100px;
 					border-radius: 5px;
 				}
 			}
-			.item-rigt{
+
+			.item-rigt {
 				width: 50%;
-				.one{
+
+				.one {
 					font-size: 15px;
 					display: block;
 				}
-				.two{
+
+				.two {
 					font-size: 12px;
 					color: #666;
 					display: block;
