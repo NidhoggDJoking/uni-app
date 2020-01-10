@@ -4,23 +4,24 @@
 			<view class="page-section swiper">
 				<view class="page-section-spacing">
 					<swiper class="swiper" :indicator-dots="indicatorDots" :autoplay="autoplay" :interval="interval" :duration="duration">
-						<swiper-item v-for="(item,index) in dataList" :key="index">
-							<image :src="getImgUrl(item)" />
+						<swiper-item v-for="(item,index) in dataList" :key="index" @click="godetails(item.id)">
+							<image :src="getSrc(item)" />
 						</swiper-item>
 					</swiper>
 				</view>
 			</view>
 		</view>
-		<text class="h3">专属推荐</text>
-
 		<view class="itemlist">
 			<view class="item" v-for="(item,index) in itemList" :key="index" @click="godetails(item.id)">
 				<view class="item-left">
-					<image :src="getImgUrl(item)"></image>
+					<image :src="getSrc(item)"></image>
 				</view>
 				<view class="item-rigt">
-					<text class="one">{{item.name}}</text>
-					<text class="two">{{item.address}}</text>
+					<text class="one">{{item.title}}</text>
+					<view class="address">
+						<text class="two">{{item.relationalSpot}}</text>
+					</view>
+					<text class="three">{{item.summary}}</text>
 				</view>
 			</view>
 		</view>
@@ -44,28 +45,20 @@
 		},
 		methods: {
 			getDate() {
-				uni.request({
-					url: 'https://m.h-etrip.com/etrip/api/app/page/block?code=mobile.area.fun.recommendation',
-					success: (res) => {
-						this.dataList = res.data.content.content;
-					}
+				this.httpRequest({
+					url: '/etrip/api/app/et/article/cultures?pageNo=0&pageSize=99&areaIds=' + this.areaCode,
+					method: 'GET',
+				}).then(res => {
+					this.itemList = res.data.content.content;
+					this.dataList = res.data.content.content.slice(-5);
 				});
-				uni.request({
-					url: 'https://m.h-etrip.com/etrip/api/app/et/funs?pageNo=0&pageSize=20&areaIds=2220',
-					success: (res) => {
-						this.itemList = res.data.content.content;
-					}
-				});
-			},
-			getImgUrl(data) {
-				return this.getSrc(data);
 			},
 			godetails(id) {
-				var url = '../details/recreation?id=' + id;
-				uni.redirectTo({
+				var url = '../culture/cultureDetails?id=' + id;
+				uni.navigateTo({
 					url: url
 				});
-			}
+			},
 		}
 	}
 </script>
@@ -80,15 +73,9 @@
 		height: 100%;
 	}
 
-	.h3 {
-		font-size: 19px;
-		font-weight: 600;
-		color: #666;
-		display: block;
-		margin: 15px 0 0px 15px;
-	}
-
 	.itemlist {
+		margin-top: 12px;
+
 		.item {
 			display: flex;
 			padding: 10px;
@@ -108,16 +95,44 @@
 				width: 50%;
 
 				.one {
-					font-size: 15px;
+					font-size: 17px;
 					display: block;
+					margin-top: 5px;
+					font-weight: 600;
+					max-width: 90%;
+					overflow: hidden;
+					text-overflow: ellipsis;
+					white-space: nowrap;
+					color: #3b3b3b;
+				}
+
+				.address {
+					display: flex;
+					align-items: center;
 				}
 
 				.two {
 					font-size: 12px;
 					color: #666;
 					display: block;
-					margin: 10px 0 10px 0;
+					margin: 9px 0 9px 0px;
+					overflow: hidden;
+					text-overflow: ellipsis;
+					display: -webkit-box;
+					-webkit-line-clamp: 1;
+					-webkit-box-orient: vertical;
 				}
+
+				.three {
+					font-size: 13px;
+					color: #666;
+					overflow: hidden;
+					text-overflow: ellipsis;
+					display: -webkit-box;
+					-webkit-line-clamp: 2;
+					-webkit-box-orient: vertical;
+				}
+
 			}
 		}
 	}

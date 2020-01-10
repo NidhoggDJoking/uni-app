@@ -3,7 +3,7 @@
 		<view class="page-section swiper">
 			<view class="page-section-spacing">
 				<swiper class="swiper" :indicator-dots="indicatorDots" :autoplay="autoplay" :interval="interval" :duration="duration">
-					<swiper-item v-for="(item,index) in imgList" :key="index">
+					<swiper-item v-for="(item,index) in imgList" :key="index" @click="godetails(item.id)">
 						<image :src="getImgUrl(item)" />
 					</swiper-item>
 				</swiper>
@@ -36,16 +36,17 @@
 		},
 		methods: {
 			getDate() {
-				uni.request({
-					url: 'https://m.h-etrip.com/etrip/api/app/page/block?code=mobile-area-specialty-top-swiper',
-					success: (res) => {
-						this.imgList = res.data.content.content.slice(0, 4);
-					}
-				});
+				// uni.request({
+				// 	url: 'https://m.h-etrip.com/etrip/api/app/page/block?code=mobile-area-specialty-top-swiper',
+				// 	success: (res) => {
+				// 		this.imgList = res.data.content.content.slice(0, 4);
+				// 	}
+				// });
 				uni.request({
 					url: 'https://m.h-etrip.com/etrip/api/app/et/specialties?pageNo=0&pageSize=60&areaIds=2220',
 					success: (res) => {
 						this.dataList = res.data.content.content;
+						this.imgList =  res.data.content.content.slice(-4);
 					}
 				});
 			},
@@ -53,8 +54,16 @@
 				return this.getSrc(data);
 			},
 			godetails(id) {
-				var url = '../details/specialty?id=' + id;
-				uni.redirectTo({
+				var url = './specialtyDetails?id=' + id;
+				uni.navigateTo({
+					url: url
+				});
+			},
+			top(data){
+				var len = data.url.split("/").length;
+				var id = data.url.split("/")[len - 1];
+				var url = './specialtyDetails?id=' + id;
+				uni.navigateTo({
 					url: url
 				});
 			}

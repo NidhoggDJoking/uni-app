@@ -6,69 +6,102 @@
 			"style": {
 				// "navigationBarTitleText": "第一页",
 				// "enablePullDownRefresh":true //开启下拉刷新
+				"navigationStyle": "custom" // 取消原生顶部导航栏
+			}
+		},
+		{
+			"path": "pages/scenic/scenic",
+			"style": {
+
+			}
+		},
+		{
+			"path": "pages/user/my",
+			"style": {
 				"navigationStyle": "custom"
 			}
 		},
 		{
-			"path": "pages/index/hello",
+			"path": "pages/introduce/introduce",
 			"style": {
-				// "navigationStyle":"custom" // 取消原生顶部导航栏
+
 			}
 		},
 		{
-			"path": "pages/index/my",
+			"path": "pages/food/food",
 			"style": {
-				"navigationStyle": "custom"
+				"navigationBarTitleText": "美食"
 			}
 		},
 		{
-			"path": "pages/other/introduce",
-			"style": {}
+			"path": "pages/food/foodDetails",
+			"style": {
+				"navigationBarTitleText": "美食详情"
+			}
 		},
 		{
-			"path": "pages/other/food",
-			"style": {}
+			"path": "pages/scenic/scenicDetails",
+			"style": {
+
+			}
 		},
 		{
-			"path": "pages/details/scenic",
-			"style": {}
+			"path": "pages/culture/culture",
+			"style": {
+				"navigationBarTitleText": "文化特色"
+			}
 		},
 		{
-			"path": "pages/details/culture",
-			"style": {}
+			"path": "pages/culture/cultureDetails",
+			"style": {
+
+			}
 		},
 		{
-			"path": "pages/other/specialty",
-			"style": {}
+			"path": "pages/specialty/specialty",
+			"style": {
+				"navigationBarTitleText": "特产"
+			}
 		}, {
-			"path": "pages/details/specialty",
-			"style": {}
+			"path": "pages/specialty/specialtyDetails",
+			"style": {
+				"navigationBarTitleText": "特产详情"
+			}
 		}, {
-			"path": "pages/other/car",
-			"style": {}
+			"path": "pages/car/car",
+			"style": {
+				"navigationBarTitleText": "租车"
+			}
 		}, {
-			"path": "pages/details/car",
-			"style": {}
+			"path": "pages/car/carDetails",
+			"style": {
+				"navigationBarTitleText": "租车详情"
+			}
 		}, {
-			"path": "pages/other/picture",
+			"path": "pages/picture/picture",
 			"style": {
 				"navigationBarTitleText": "图库"
 			}
 		}, {
-			"path": "pages/other/live",
-			"style": {}
+			"path": "pages/live/live",
+			"style": {
+				"navigationBarTitleText": ""
+			}
 		}, {
-			"path": "pages/details/live",
-			"style": {}
+			"path": "pages/live/liveDetails",
+			"style": {
+
+			}
 		}, {
-			"path": "pages/other/recreation",
-			"style": {}
+			"path": "pages/recreation/recreation",
+			"style": {
+				"navigationBarTitleText": "娱乐"
+			}
 		}, {
-			"path": "pages/details/recreation",
-			"style": {}
-		}, {
-			"path": "pages/details/food",
-			"style": {}
+			"path": "pages/recreation/recreationDetails",
+			"style": {
+
+			}
 		}, {
 			"path": "pages/user/receiving",
 			"style": {
@@ -99,8 +132,58 @@
 			"style": {
 				"navigationBarTitleText": "设置"
 			}
+		},
+		{
+			"path": "pages/stay/stay",
+			"style": {
+				"navigationBarTitleText": "住宿"
+			}
 		}
-	],
+	    ,{
+            "path" : "pages/stay/stayDetails",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/specialty/specialtyOrder",
+            "style" : {
+				"navigationBarTitleText": "订单填写"
+			}
+        }
+        ,{
+            "path" : "pages/login/login",
+            "style" : {}
+        },
+		{
+		    "path" : "pages/tickets/tickets",
+		    "style" : {
+				"navigationBarTitleText": "门票"
+			}
+		},
+		{
+		    "path" : "pages/tickets/ticketsOrder",
+		    "style" : {}
+		}
+        ,{
+            "path" : "pages/stay/stayOrder",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/user/order",
+            "style" : {
+				"navigationBarTitleText": "订单"
+			}
+        }
+        ,{
+            "path" : "pages/guide/guide",
+            "style" : {
+				"navigationBarTitleText": "导览"
+			}
+        }
+        ,{
+            "path" : "pages/guide/mapdetails",
+            "style" : {}
+        }
+    ],
 
 	"tabBar": {
 		"color": "#7A7E83",
@@ -114,13 +197,13 @@
 				"text": "首页"
 			},
 			{
-				"pagePath": "pages/index/hello",
+				"pagePath": "pages/scenic/scenic",
 				"iconPath": "static/img/TabsTravel.png",
 				"selectedIconPath": "static/img/TabsTravelFocus.png",
 				"text": "景点"
 			},
 			{
-				"pagePath": "pages/index/my",
+				"pagePath": "pages/user/my",
 				"iconPath": "static/img/TabsFace.png",
 				"selectedIconPath": "static/img/TabsFaceFocus.png",
 				"text": "我的"

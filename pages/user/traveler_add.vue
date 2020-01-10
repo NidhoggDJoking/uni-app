@@ -86,9 +86,11 @@
 				}
 				console.log(this.form);
 				this.data.push(this.form)
+				console.log(this.data);
+				var test = JSON.stringify(this.data)
 				uni.setStorage({
 					key: 'traveler',
-					data: this.data,
+					data: test,
 					success: function() {
 						uni.showToast({
 							title: '添加成功',

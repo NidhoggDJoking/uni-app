@@ -56,18 +56,19 @@
 	.nav>view {
 		width: 25%;
 		text-align: center;
-		height: 35px;
-		line-height: 35px;
+		height: 37px;
+		line-height: 37px;
+		color: #333333;
 	}
 
 	.active {
-		border-bottom: 2px solid red;
+		border-bottom: 2px solid #f8673b;
 	}
 
 	image {
 		width: calc(100% -20px);
 		height: 260px;
-		margin: 10px auto;
+		margin: 12px auto;
 		display: block;
 		border-radius: 10px;
 		box-shadow: 0px 1px 4px #c7c7c7;

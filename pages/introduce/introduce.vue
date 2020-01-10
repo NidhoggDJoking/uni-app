@@ -13,7 +13,6 @@
 
 <script>
 	export default {
-		onShow() {},
 		mounted() {
 			this.getDate();
 		},
@@ -22,23 +21,20 @@
 				textData: "",
 				img: "",
 				title: "",
-				name: ","
+				name: "",
 			}
 		},
 		methods: {
 			getDate() {
-				uni.request({
-					url: 'https://m.h-etrip.com/etrip/api/app/et/areas/2220',
-					success: (res) => {
-						this.textData = res.data.content.content;
-						this.img = this.getImgUrl(res.data.content);
-						this.title = res.data.content.summary;
-						this.name = res.data.content.name;
-					}
+				this.httpRequest({
+					url: '/etrip/api/app/et/areas/' + this.areaCode,
+					method: 'GET',
+				}).then(res => {
+					this.textData = res.data.content.content;
+					this.img = this.getSrc(res.data.content);
+					this.title = res.data.content.summary;
+					this.name = res.data.content.name;
 				});
-			},
-			getImgUrl(data) {
-				return this.getSrc(data);
 			},
 		}
 	}
@@ -71,6 +67,6 @@
 
 	.text {
 		background: #fff;
-		padding: 20px;
+		padding: 0 20px 20px 20px;
 	}
 </style>

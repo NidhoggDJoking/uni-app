@@ -63,9 +63,8 @@
 </script>
 
 <style scoped>
-	
 	.content {
-	/* 	position: fixed;
+		/* 	position: fixed;
 		top: 0;
 		left: 0;
 		background: #f7f8fa; */
@@ -102,7 +101,7 @@
 	.card {
 		background: #fff;
 		width: 100%;
-		min-height: 170px;
+		min-height: 100px;
 		border-radius: 5px;
 		margin: 10px auto;
 		box-shadow: 0 0 4px rgb(230, 230, 230);
@@ -115,18 +114,24 @@
 		border-bottom: 1px solid #f7f8fa;
 		height: 25px;
 		line-height: 20px;
-		color: #333333;
+		font-size: 14px;
+		font-weight: 600;
+		color: #666;
 	}
-	.phone{
+
+	.phone {
 		display: block;
 		padding: 10px 10px 0 10px;
-		color: #333333;
+		color: #777;
 		font-size: 13px;
 	}
+
 	.address {
 		display: block;
 		padding: 10px;
 		color: #333333;
 		font-size: 13px;
+		line-height: 20px;
+		color: #777;
 	}
 </style>

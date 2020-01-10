@@ -35,8 +35,8 @@
 				return this.getSrc(data);
 			},
 			godetails(id) {
-				var url = '../details/live?id=' + id;
-				uni.redirectTo({
+				var url = './liveDetails?id=' + id;
+				uni.navigateTo({
 					url: url
 				});
 			}

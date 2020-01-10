@@ -3,12 +3,12 @@
 
 		<view class="item">
 			<text>昵称：</text>
-			<input v-model="form.name" type="text" placeholder="请输入姓名" />
+			<input v-model="form.name" type="text" maxlength="10" placeholder="请输入姓名" />
 		</view>
 
 		<view class="item">
 			<text>联系号码：</text>
-			<input v-model="form.phone" type="number" maxlength="11" placeholder="请输入号码" />
+			<input v-model="form.mobile" type="number" maxlength="11" placeholder="请输入号码" />
 		</view>
 
 		<view class="item">
@@ -18,7 +18,7 @@
 
 		<view class="item">
 			<text>证件号码：</text>
-			<input v-model="form.idcard" type="idcard" maxlength="18" placeholder="请输入证件号码" />
+			<input v-model="form.idNo" type="idcard" maxlength="18" placeholder="请输入证件号码" />
 		</view>
 
 		<view class="save">
@@ -31,57 +31,69 @@
 	export default {
 		onLoad() {
 			var that = this;
-
 			uni.getStorage({
-				key: 'info',
+				key: 'token',
 				success: function(res) {
-					that.form = res.data;
-				},
-				fail(err) {
-					uni.getStorage({
-						key: 'userInfo',
-						success: function(res) {
-							that.form.name = res.data.nickName;
+					console.log(res);
+					that.token = res.data;
+					uni.request({
+						url: that.baseUrl + '/etrip/api/app/security/my/info',
+						header: {
+							'Authorization': that.token, //自定义请求头信息
 						},
-						fail(err) {
-							console.log(err);
+						success: (res) => {
+							console.log(res);
+							that.form.name = res.data.content.name
+							that.form.mobile = res.data.content.mobile
+							that.form.email = res.data.content.email
+							that.form.idNo = res.data.content.idNo
 						}
 					});
 				}
 			});
+
 		},
 		data() {
 			return {
 				form: {
 					name: '',
-					phone: '',
+					mobile: '',
 					email: '',
-					idcard: '',
+					idNo: '',
 				},
+				token: "",
 			}
 		},
 		methods: {
 			save() {
-
+				var that = this;
 				console.log(this.form);
-				uni.setStorage({
-					key: 'info',
-					data: this.form,
-					success: function() {
-						console.log('success');
-						uni.showToast({
-							title: '添加成功',
-							duration: 2000
+				uni.getStorage({
+					key: 'token',
+					success: function(res) {
+						console.log(res);
+						that.token = res.data;
+						uni.request({
+							url: that.baseUrl + '/etrip/api/app/security/update/info',
+							method: 'POST',
+							data: that.form,
+							header: {
+								'Authorization': that.token, //自定义请求头信息
+							},
+							success: (res) => {
+								console.log(res);
+								uni.showToast({
+									title: '修改成功！',
+									duration: 1500
+								});
+								setTimeout(function() {
+									uni.switchTab({
+										url: '../user/my'
+									});
+								}, 1500);
+							}
 						});
-						setTimeout(function() {
-							uni.navigateTo({
-								url: '/pages/index/my'
-							});
-						}, 2000);
-					},
-					fail: function() {
-						console.log('fail');
-					},
+					}
 				});
 			}
 		}
@@ -105,7 +117,10 @@
 			width: 100px;
 		}
 
-		input {}
+		input {
+			font-size:13px;
+			color: #222222;
+		}
 	}
 
 	.save {
