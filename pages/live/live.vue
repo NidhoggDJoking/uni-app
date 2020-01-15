@@ -1,6 +1,7 @@
 <template>
 	<view>
-		<image src="http://yxx.h-etrip.com/app/assets/img/liveBgI.png" />
+		<!-- <image src="http://yxx.h-etrip.com/app/assets/img/liveBgI.png" /> -->
+		<image src="http://cdn.yxx.h-etrip.com/etrip/console/images/20611?w=600" />
 		<text class="title">热门直播</text>
 		<view class="list">
 			<view class="card" v-for="(item,index) in dataList" :key="index" @click="godetails(item.id)">
@@ -20,16 +21,26 @@
 		data() {
 			return {
 				dataList: [],
+				areaCode:'2220',
 			}
 		},
 		methods: {
 			getData() {
 				uni.request({
-					url: 'https://m.h-etrip.com/etrip/api/app/et/spot/videos?pageNo=0&pageSize=20&sort=create_time%20desc',
+					url: 'https://m.h-etrip.com/etrip/api/app/et/spot/videos?pageNo=0&pageSize=99&sort=create_time%20desc',
 					success: (res) => {
-						this.dataList = res.data.content.content;
+						let hot = res.data.content.content;
+						hot.forEach(data=>{
+							if (this.hasArea(data.areaIds)>-1){
+								this.dataList.push(data)
+							}
+						})
 					}
 				});
+			},
+			// 判断areaCodes中是否包含了areaCoded调用此方法
+			hasArea(areaCodes){
+				return areaCodes.indexOf(this.areaCode);
 			},
 			getImgUrl(data) {
 				return this.getSrc(data);

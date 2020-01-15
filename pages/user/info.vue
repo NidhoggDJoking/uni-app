@@ -3,9 +3,12 @@
 
 		<view class="item">
 			<text>昵称：</text>
-			<input v-model="form.name" type="text" maxlength="10" placeholder="请输入姓名" />
+			<input v-model="form.name" type="text" maxlength="15" placeholder="请输入昵称" />
 		</view>
-
+		<view class="item">
+			<text>姓名：</text>
+			<input v-model="form.realName" type="text" maxlength="10" placeholder="请输入姓名" />
+		</view>
 		<view class="item">
 			<text>联系号码：</text>
 			<input v-model="form.mobile" type="number" maxlength="11" placeholder="请输入号码" />
@@ -43,10 +46,13 @@
 						},
 						success: (res) => {
 							console.log(res);
+							that.obj = res.data.content;
 							that.form.name = res.data.content.name
+							that.form.realName = res.data.content.realName
 							that.form.mobile = res.data.content.mobile
 							that.form.email = res.data.content.email
 							that.form.idNo = res.data.content.idNo
+							that.form.profile = res.data.content.profile
 						}
 					});
 				}
@@ -57,10 +63,14 @@
 			return {
 				form: {
 					name: '',
+					realName: '',
 					mobile: '',
 					email: '',
 					idNo: '',
+					profile: {},
+
 				},
+				obj: {},
 				token: "",
 			}
 		},
@@ -68,6 +78,14 @@
 			save() {
 				var that = this;
 				console.log(this.form);
+				this.obj.name = this.form.name;
+				uni.setStorage({
+					key: 'userInfo',
+					data: that.obj,
+					success: function() {
+						console.log('success');
+					}
+				});
 				uni.getStorage({
 					key: 'token',
 					success: function(res) {
@@ -118,7 +136,7 @@
 		}
 
 		input {
-			font-size:13px;
+			font-size: 13px;
 			color: #222222;
 		}
 	}

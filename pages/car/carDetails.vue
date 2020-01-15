@@ -14,13 +14,23 @@
 			<text>{{dataList.variableBox}} - {{dataList.personCount}}座</text>
 			<text>{{dataList.rentName}}</text>
 		</view>
-		<text class="money"><text class="red">￥{{dataList.price/100}}</text>起/天</text>
+		<view class="table2">
+			<text class="money"><text class="red">￥{{dataList.price/100}}</text>起/天</text>
+			<view class="telphone">
+				<uni-icons style="display: block;" type="phone-filled" size="12" color="#f8673b"></uni-icons>
+				<text class="phone">{{phone}}</text>
+			</view>
+		</view>
 		<view class="text" v-html="dataList.description"></view>
 	</view>
 </template>
 
 <script>
+	import uniIcons from "@/components/uni-icons/uni-icons.vue"
 	export default {
+		components: {
+			uniIcons
+		},
 		onLoad(option) {
 			this.id = option.id;
 			this.getData();
@@ -30,6 +40,7 @@
 				id: '',
 				dataList: {},
 				photo: [],
+				phone:"",
 				indicatorDots: true,
 				autoplay: true,
 				interval: 2000,
@@ -39,6 +50,7 @@
 		methods: {
 			getData() {
 				let url = 'https://m.h-etrip.com/etrip/api/app/et/rents/' + this.id;
+				let url2 = 'https://m.h-etrip.com/etrip/api/app/et/rents/product/' + this.id;
 				uni.request({
 					url: url,
 					success: (res) => {
@@ -48,6 +60,14 @@
 						console.log(this.photo);
 					}
 				});
+				uni.request({
+					url: url2,
+					success: (res) => {
+						console.log(res.data);
+						this.phone = res.data.telephone;
+					}
+				});
+				
 			},
 			getImgUrl(data) {
 				return this.getSrc(data);
@@ -86,10 +106,28 @@
 		align-items: center;
 		justify-content: space-between;
 	}
-	.money{
+	.table2{
 		padding: 0 20px;
-		display: block;
-		margin: 12px 0;
+		display: flex;
+		font-size: 15px;
+		color: #333333;
+		align-items: center;
+		justify-content: space-between;
+	}
+	.telphone{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	.phone{
+		margin-left: 4px;
+		font-size: 12px;
+		margin-top: 5px;
+	}
+	.money{
+		display: flex;
+		justify-content: space-between;
+		margin: 18px 0 12px 0;
 		font-size: 14px;
 		color: #222222;
 	}

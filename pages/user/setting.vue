@@ -34,6 +34,12 @@
 						}, 2000);
 					}
 				});
+				uni.removeStorage({
+					key: 'token',
+					success: function(res) {
+						console.log('success2');
+					}
+				});
 			},
 			seting(){
 				uni.openSetting({

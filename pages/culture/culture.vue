@@ -4,8 +4,8 @@
 			<view class="page-section swiper">
 				<view class="page-section-spacing">
 					<swiper class="swiper" :indicator-dots="indicatorDots" :autoplay="autoplay" :interval="interval" :duration="duration">
-						<swiper-item v-for="(item,index) in dataList" :key="index" @click="godetails(item.id)">
-							<image :src="getSrc(item)" />
+						<swiper-item v-for="(item,index) in dataList" :key="index" :style="{backgroundImage:'url('+getSrc(item)+')'}" @click="godetails(item.id)">
+							<!-- <image :src="getSrc(item)" /> -->
 						</swiper-item>
 					</swiper>
 				</view>
@@ -50,7 +50,7 @@
 					method: 'GET',
 				}).then(res => {
 					this.itemList = res.data.content.content;
-					this.dataList = res.data.content.content.slice(-5);
+					this.dataList = res.data.content.content.slice(10,15);
 				});
 			},
 			godetails(id) {

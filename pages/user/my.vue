@@ -4,7 +4,7 @@
 			<view class="card"></view>
 		</view>
 		<view class="card">
-			<image :src="userInfo.avatarUrl"></image>
+			<image mode="aspectFill" :src="userInfo.avatarUrl" @click="head"></image>
 			<text v-if="userInfo.nickName =='' ">登录后可查看更多</text>
 			<text v-if="userInfo.nickName !='' " class="nick">{{userInfo.nickName}}</text>
 			<!-- <button v-show="userInfo.nickName =='' " class="login" @getuserinfo="onGotUserInfo" open-type="getUserInfo">登录/注册</button> -->
@@ -237,6 +237,12 @@
 					success(res) {}
 				});
 			},
+			// 头像
+			head(){
+				uni.navigateTo({
+					url: './head'
+				});
+			}
 		}
 	}
 </script>

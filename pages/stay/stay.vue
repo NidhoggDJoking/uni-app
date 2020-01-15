@@ -14,8 +14,8 @@
 		
 			<view class="itemlist">
 				<view class="item" v-for="(item,index) in dataList" :key="index" @click="godetails(item.id)">
-					<view class="item-left">
-						<image :src="getSrc(item)" :lazy-load="true"></image>
+					<view class="item-left" :style="{backgroundImage:'url('+getSrc(item)+')'}">
+						<!-- <image :src="getSrc(item)" :lazy-load="true"></image> -->
 					</view>
 					<view class="item-rigt">
 						<text class="one">{{item.name}}</text>
@@ -102,9 +102,11 @@
 
 			.item-left {
 				width: 43%;
+				height: 100px;
+				background: center / cover no-repeat #e7e7e7;
 
 				image {
-					width: 100%;
+					width: auto;
 					height: 100px;
 					border-radius: 5px;
 				}

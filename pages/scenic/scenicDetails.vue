@@ -77,6 +77,8 @@
 
 	.swiper {
 		height: 200px;
+		background: #e7e7e7;
+
 	}
 
 	.swiper image {

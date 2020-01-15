@@ -70,13 +70,13 @@
 			<view class="desMapTitle">
 				<text class="tripCity">嗨游怀化</text>
 				<navigator :url="'/pages/guide/guide'">
-				<text class="readMore">
-					怡人之地多了一个你
-					<text> </text>
-				</text>
+					<text class="readMore">
+						怡人之地多了一个你
+						<text> </text>
+					</text>
 				</navigator>
 			</view>
-			<view class="desMapBanner">
+			<view class="desMapBanner" @click="toMap">
 				<image src="http://yxx.h-etrip.com/app/assets/img/desMap.png" />
 			</view>
 		</view>
@@ -120,6 +120,18 @@
 		onShow() {
 			// console.log('监听页面显示。页面每次出现在屏幕上都触发，包括从下级页面点返回露出当前页面');
 			this.getDate();
+		},
+		onReachBottom() {
+			if (this.dataList.length > this.page * 5) {
+				uni.showLoading({
+					title: '加载中'
+				});
+				setTimeout(function() {
+					uni.hideLoading();
+				}, 500);
+				this.lookmore();
+			}
+			// console.log("到达底部");
 		},
 		// onReady(){
 		// 	console.log('监听页面初次渲染完成。注意如果渲染速度快，会在页面进入动画完成前触发');
@@ -173,6 +185,11 @@
 			lookmore() {
 				this.page = this.page + 1;
 				this.list = this.dataList.slice(0, this.page * 5)
+			},
+			toMap() {
+				uni.navigateTo({
+					url: '/pages/live/live'
+				})
 			}
 		}
 	}
