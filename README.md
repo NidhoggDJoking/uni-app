@@ -75,7 +75,7 @@
 
 #### 目录结构
 
-```
+
 	┌─components            uni-app组件目录
 	│  └─comp-a.vue         可复用的a组件
 	├─hybrid                存放本地网页的目录，详见
@@ -92,7 +92,7 @@
 	├─manifest.json         配置应用名称、appid、logo、版本等打包信息，详见
 	└─pages.json            配置页面路由、导航条、选项卡等页面类信息，详见
 
-```
+
 
 #### 微信小程序方面
 
