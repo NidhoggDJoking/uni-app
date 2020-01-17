@@ -183,6 +183,12 @@
             "path" : "pages/guide/mapdetails",
             "style" : {}
         }
+        ,{
+            "path" : "pages/user/head",
+            "style" : {
+				"navigationBarTitleText": "修改头像"
+			}
+        }
     ],
 
 	"tabBar": {
