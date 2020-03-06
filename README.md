@@ -132,3 +132,19 @@
 	
 	https://ext.dcloud.net.cn/plugin?id=112
 ```
+
+> ##### uni-app 中可以使用$refs，但是需要注意的是在小程序和App平台不能引用内置组件。
+##### 即: 除了自己写的组件其余的都无法使用 $refs,并非是Vue.nextTick的使用问题
+
+
+
+```
+   //使用专门的API查询节点信息的对象:
+   const query = uni.createSelectorQuery().in(this);
+   query.select('#id').boundingClientRect(data => {
+      console.log("得到布局位置信息" + JSON.stringify(data));
+      console.log("节点离页面顶部的距离为" + data.top);
+   }).exec();
+
+```
+[传送门](https://uniapp.dcloud.io/api/ui/nodes-info?id=selectorquery)
